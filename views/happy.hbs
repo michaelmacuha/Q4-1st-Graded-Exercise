@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width", initial-scale=1>
+  <meta name="author" content="">
+  <meta name="description" content=" ">
+  <meta name="keywords" content="">
+  <title>Canseco - CS 3 </title>
+  <!-- using the w3.css framework to show how predefined css classes can be used inside an html document.  -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- local css property definitions to further enhance the page -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="">
+</head>
+
+<!--- classes that starts with w3 are defined inside w3.css -->
+<body class="w3-container w3-auto">
+
+  <!-- do define the navigation bar using classes to define a button styled as a link
+      take note: just a demonsration on how it can be used. Responsive to the size of the viewport
+  -->
+  <div class="w3-bar w3-black">
+    <a href="/" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-mobile">Happy</a> 
+  </div>
+
+
+  <header class="w3-container" id="header" > 
+    <h1>Roy Canseco - III-K - Jan 2025</h1>
+    <h2> Birthday </h2>
+  </header>
+
+  <section class="w3-container" id="input"> 
+    <h2>Output</h2>
+    <p id="output"></p>
+  </section>
+
+  <footer class="w3-container ">
+    <p> &copy; 2024 CS3 Teachers </p>
+  </footer>
+  <script>
+    /*
+ to respond to the submit button
+*/
+function solve(){
+    // access the form defined in index and create a form data object using FormData()
+    const form = document.getElementById('input_form');
+    const formData = new FormData(form);
+     // get the name of the celebrant
+    console.log(formData.get("name"));
+    const name = formData.get('name');
+  
+    // get and checks the gender
+    console.log(formData.get('gender'));
+    let gender = formData.get('gender');
+    
+    let dataName = "name"
+    let count = 1;
+    let arrayName = new Array();
+    let test = true;
+    while(test) {
+      if(formData.get(dataName)) {
+        dataName += count;
+      arrayName = formData.get(dataName);
+        count++;
+      } else {
+        test = false;
+      }
+    }
+  
+    let songTotal = "Happy birthday to you. Happy birthday to you. Happy birthday dear _. Happy birthday to you! For __ a jolly good fellow. For __ a jolly good fellow. For __ a jolly good fellow, which nobody can deny!"
+    let song = songTotal.split('');
+    let happy = ' ';
+
+    for(key in song) {
+
+      if(song[key] == '_') {
+        song[key] = name;
+      } else if (song[key] == '__') {
+        if(gender == "male") {
+          song[key] = "she is";
+        } else {
+          song[key] = "he is";
+        }
+      }
+    }
+
+    let output = '';
+    let nameCounter = 0;
+    for(key in song) {
+      output += arrayName[nameCounter] + ": " + song[key] + "<br>";
+      nameCounter++;
+    }
+    console.log(output);
+   
+    p.innerHTML = output;
+
+
+  
+}
+
+  </script>
+</body>
+
+</html>
