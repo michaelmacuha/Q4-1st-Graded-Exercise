@@ -45,11 +45,11 @@ app.get("/", (req, res) => {
 for (let i = 1; i <= 16; i++) {
   const checkbox = req.body[`checkbox${i}`];
 
-  if (!req.body[`name${i}`];) {
+  if (!req.body[`name${i}`]) {
     break;
   } 
   if (checkbox !== undefined) {
-    arrayName.push(req.body[`name${i}`];);
+    arrayName.push(req.body[`name${i}`]);
   }
 }
 
