@@ -28,78 +28,21 @@
 
 
   <header class="w3-container" id="header" > 
-    <h1>Roy Canseco - III-K - Jan 2025</h1>
+    <h1>Michael Macuha - 9-Mg - Apr 2025</h1>
     <h2> Birthday </h2>
   </header>
 
   <section class="w3-container" id="input"> 
     <h2>Output</h2>
-    <p id="output"></p>
+    <!-- the output from the output variable inside of the server.js -->
+    <p id="output">{{{output}}}</p>
   </section>
 
   <footer class="w3-container ">
-    <p> &copy; 2024 CS3 Teachers </p>
+    <p> &copy; 2024 Michael Macuha </p>
   </footer>
   <script>
-    /*
- to respond to the submit button
-*/
-function solve(){
-    // access the form defined in index and create a form data object using FormData()
-    const form = document.getElementById('input_form');
-    const formData = new FormData(form);
-     // get the name of the celebrant
-    console.log(formData.get("name"));
-    const name = formData.get('name');
-  
-    // get and checks the gender
-    console.log(formData.get('gender'));
-    let gender = formData.get('gender');
     
-    let dataName = "name"
-    let count = 1;
-    let arrayName = new Array();
-    let test = true;
-    while(test) {
-      if(formData.get(dataName)) {
-        dataName += count;
-      arrayName = formData.get(dataName);
-        count++;
-      } else {
-        test = false;
-      }
-    }
-  
-    let songTotal = "Happy birthday to you. Happy birthday to you. Happy birthday dear _. Happy birthday to you! For __ a jolly good fellow. For __ a jolly good fellow. For __ a jolly good fellow, which nobody can deny!"
-    let song = songTotal.split('');
-    let happy = ' ';
-
-    for(key in song) {
-
-      if(song[key] == '_') {
-        song[key] = name;
-      } else if (song[key] == '__') {
-        if(gender == "male") {
-          song[key] = "she is";
-        } else {
-          song[key] = "he is";
-        }
-      }
-    }
-
-    let output = '';
-    let nameCounter = 0;
-    for(key in song) {
-      output += arrayName[nameCounter] + ": " + song[key] + "<br>";
-      nameCounter++;
-    }
-    console.log(output);
-   
-    p.innerHTML = output;
-
-
-  
-}
 
   </script>
 </body>
